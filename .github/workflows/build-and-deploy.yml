@@ -59,11 +59,3 @@ jobs:
       - name: Build web
         run: flutter build web --release --web-renderer canvaskit --base-href=/ludo_mini_app/
         # Matches GitHub Pages URL: https://<username>.github.io/ludo-mini-app/
-
-      # Deploy to GitHub Pages
-      - name: Deploy to GitHub Pages
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: build/web
